@@ -256,7 +256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Alive
+  m_text: alive
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
+  boxTextMesh: {fileID: 208281854}
 --- !u!61 &1305653119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3225,6 +3226,14 @@ PrefabInstance:
     - target: {fileID: 4901575850200030437, guid: 626f3845e66d2ca42932a106df614901, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149388667419962273, guid: 626f3845e66d2ca42932a106df614901, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149388667419962273, guid: 626f3845e66d2ca42932a106df614901, type: 3}
+      propertyPath: walkSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6759023984163522635, guid: 626f3845e66d2ca42932a106df614901, type: 3}
       propertyPath: cherriesText
