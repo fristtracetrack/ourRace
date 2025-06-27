@@ -9,20 +9,9 @@ public class SpikeBehavior : MonoBehaviour
     private bool isFollowing = false;
     private Transform target;
 
-    // 新增：box的TextMeshPro引用
-    public TextMeshPro boxTextMesh;
 
     void Update()
     {
-        // 检查box文字内容
-        if (boxTextMesh != null && boxTextMesh.text == "alive")
-        {
-            isAlive = true;
-        }
-        else
-        {
-            isAlive = false;
-        }
 
         if (isFollowing && isAlive)
         {
