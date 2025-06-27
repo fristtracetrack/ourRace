@@ -12,15 +12,16 @@ public class FlagController : MonoBehaviour
     {
         flag_anim = GetComponent<Animator>();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("ok");
         // 如果旗子已经升起，则不再触发
         if (hasRaised) return;
         // 检查进入触发器的对象是否是玩家
         if (other.CompareTag("Player"))
         {
             // 触发旗子升起动画
-            flag_anim.SetTrigger("Raise");
+            flag_anim.SetTrigger("check");
             hasRaised = true; // 标记为已升起
         }
     }

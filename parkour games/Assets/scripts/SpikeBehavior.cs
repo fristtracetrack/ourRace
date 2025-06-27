@@ -1,45 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // 引入TextMeshPro命名空间
 
 public class SpikeBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //是否跟随
     public bool isAlive = true;
     private bool isFollowing = false;
-
-    //跟随的角色
     private Transform target;
 
-    //检查是否跳过尖刺
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player") && !isFollowing)
-        {
-            //获取玩家
-            target = collision.transform;
-            //激活跟随
-            isFollowing = true;
-        }
-    }
+    // 新增：box的TextMeshPro引用
+    public TextMeshPro boxTextMesh;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if(isFollowing && isAlive)
+        // 检查box文字内容
+        if (boxTextMesh != null && boxTextMesh.text == "alive")
+        {
+            isAlive = true;
+        }
+        else
+        {
+            isAlive = false;
+        }
+
+        if (isFollowing && isAlive)
         {
             transform.position = new Vector2(target.position.x, transform.position.y);
         }
-        
     }
 
-
-    
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !isFollowing && isAlive)
+        {
+            target = collision.transform;
+            isFollowing = true;
+        }
+    }
 }
