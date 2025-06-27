@@ -14,6 +14,7 @@ public class FlagController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("ok");
         // 如果旗子已经升起，则不再触发
         if (hasRaised) return;
         // 检查进入触发器的对象是否是玩家
