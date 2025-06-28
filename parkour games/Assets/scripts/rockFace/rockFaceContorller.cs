@@ -25,6 +25,12 @@ public class rockFaceContorller : MonoBehaviour
         monsterAnimator = GetComponent<Animator>();
         StartCoroutine(BlinkRoutine());
         initialPosition = transform.position;
+        isAliveManager.Instance.OnTrapsStateChanged += OnTrapsStateChanged;
+    }
+    void OnDestroy()
+    {
+        // 取消订阅以避免内存泄漏
+        isAliveManager.Instance.OnTrapsStateChanged -= OnTrapsStateChanged;
     }
 
     IEnumerator BlinkRoutine()
@@ -51,13 +57,13 @@ public class rockFaceContorller : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         // 检测玩家是否进入范围
-        if (distanceToPlayer <= detectionRadius && !isFollowing)
+        if (distanceToPlayer <= detectionRadius && !isFollowing && isAliveManager.Instance.TrapsAreAlive)
         {
             StartFollowing();
         }
 
         // 当玩家离开检测范围时停止跟随
-        if (isFollowing && distanceToPlayer > detectionRadius * 1.2f)
+        if (isFollowing && distanceToPlayer > detectionRadius * 1.2f || isAliveManager.Instance.TrapsAreAlive)
         {
             StopFollowing();
         }
@@ -66,7 +72,7 @@ public class rockFaceContorller : MonoBehaviour
     void FixedUpdate()
     {
         // 跟随逻辑在FixedUpdate中处理（物理更新）
-        if (isFollowing && player != null)
+        if (isFollowing && player != null && isAliveManager.Instance.TrapsAreAlive)
         {
             FollowPlayer();
         }
@@ -74,12 +80,10 @@ public class rockFaceContorller : MonoBehaviour
     private void StartFollowing()
     {
         isFollowing = true;
-        Debug.Log("怪物开始跟随玩家！");
     }
     private void StopFollowing()
     {
         isFollowing = false;
-        Debug.Log("怪物停止跟随");
 
         // 停止移动
         rb.velocity = Vector2.zero;
@@ -102,6 +106,14 @@ public class rockFaceContorller : MonoBehaviour
 
         
         
+    }
+    private void OnTrapsStateChanged(bool newState)
+    {
+        if (newState) // 当陷阱重新激活时
+        {
+            // 重置跟踪状态和目标
+            isFollowing = false; 
+        }
     }
 
 
