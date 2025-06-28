@@ -4000,7 +4000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3758191664938321923, guid: 996959b08f323ee428ace4607b1b0253, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758191664938321923, guid: 996959b08f323ee428ace4607b1b0253, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758191664938321923, guid: 996959b08f323ee428ace4607b1b0253, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6778682101533204178, guid: 996959b08f323ee428ace4607b1b0253, type: 3}
       propertyPath: rb
