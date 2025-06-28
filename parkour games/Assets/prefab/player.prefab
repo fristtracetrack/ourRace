@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6840968272053196749}
   - component: {fileID: 6480863361218556511}
   - component: {fileID: 6149388667419962273}
-  - component: {fileID: 458844660516460615}
   - component: {fileID: 6759023984163522635}
   - component: {fileID: 207615042401227473}
   - component: {fileID: 240196009492316658}
@@ -203,18 +202,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &458844660516460615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901575850200030437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c6412a48f6a08408db222b655e4b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6759023984163522635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edb7cd1dbef33f4da24872a6ab7bfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cherriesText: {fileID: 0}
 --- !u!114 &207615042401227473
 MonoBehaviour:
   m_ObjectHideFlags: 0
