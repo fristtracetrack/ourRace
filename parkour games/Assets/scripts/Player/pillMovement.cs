@@ -54,11 +54,15 @@ public class pillMovement : MonoBehaviour
 
         //左右移动
         horizontalInput = Input.GetAxisRaw("Horizontal"); //获取水平输入
-        rd.velocity = new Vector2(horizontalInput * walkSpeed, rd.velocity.y);
 
-        
+
 
         UpdateAnimationState(); //更新动画状态
+    }
+    private void FixedUpdate()
+    {
+        
+        rd.velocity = new Vector2(horizontalInput * walkSpeed, rd.velocity.y);
     }
     private void UpdateAnimationState()
     {
