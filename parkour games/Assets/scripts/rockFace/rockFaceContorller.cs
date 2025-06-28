@@ -63,7 +63,7 @@ public class rockFaceContorller : MonoBehaviour
         }
 
         // µ±Íæ¼ÒÀë¿ª¼ì²â·¶Î§Ê±Í£Ö¹¸úËæ
-        if (isFollowing && distanceToPlayer > detectionRadius * 1.2f || isAliveManager.Instance.TrapsAreAlive)
+        if (isFollowing && distanceToPlayer > detectionRadius * 1.2f || !isAliveManager.Instance.TrapsAreAlive)
         {
             StopFollowing();
         }

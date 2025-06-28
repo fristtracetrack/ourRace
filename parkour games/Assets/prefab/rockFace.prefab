@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3758191664938321923}
   m_Layer: 0
   m_Name: rockFace
-  m_TagString: Untagged
+  m_TagString: Trag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,15 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f6810d46c08334f9e4d74737cd35cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterAnimator: {fileID: 1961438134835562884}
+  monsterAnimator: {fileID: 0}
   minBlinkInterval: 2
   maxBlinkInterval: 5
   detectionRadius: 5
-  followSpeed: 3
-  stoppingDistance: 1
+  followSpeed: 8
+  stoppingDistance: 0.5
   player: {fileID: 0}
-  rb: {fileID: 0}
-  animator: {fileID: 0}
+  rb: {fileID: 3758191664938321923}
 --- !u!95 &1961438134835562884
 Animator:
   serializedVersion: 5
@@ -240,7 +239,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266024885453384544}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
