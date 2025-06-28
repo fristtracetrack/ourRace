@@ -29,7 +29,6 @@ public class isAliveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ¿ç³¡¾°±£³Ö
         }
         else
         {
