@@ -981,8 +981,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4901575850200030437, guid: 626f3845e66d2ca42932a106df614901, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1255281967}
   m_SourcePrefab: {fileID: 100100000, guid: 626f3845e66d2ca42932a106df614901, type: 3}
+--- !u!1 &877090926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4901575850200030437, guid: 626f3845e66d2ca42932a106df614901, type: 3}
+  m_PrefabInstance: {fileID: 877090925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926657185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2576,22 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6480863361218556511, guid: 626f3845e66d2ca42932a106df614901, type: 3}
   m_PrefabInstance: {fileID: 877090925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1255281967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877090926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc81de7494311d646b568f0540d96629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  darknessOverlay: {fileID: 0}
+  fadeDuration: 0.5
+  maxDarkness: 0.7
+  autoCreateOverlay: 1
 --- !u!1 &1257230744
 GameObject:
   m_ObjectHideFlags: 0
