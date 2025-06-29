@@ -8,16 +8,15 @@ public class CherryControlledObject : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;        // 移动速度
     [SerializeField] private float moveDistance = 10f;    // 移动距离
     [SerializeField] private bool moveOnStart = false;    // 是否在开始时移动
-    [SerializeField] private bool moveOnFirstUse = true;  // 是否在第一次使用樱桃时移动
 
     [Header("组件引用")]
     [SerializeField] private Rigidbody2D rb;              // 刚体组件
 
     private Vector2 startPosition;                        // 初始位置
+    private Vector2 endPosition;                           // 终点位置
     private Vector2 targetPosition;                       // 目标位置
     private bool isMoving = false;                        // 是否正在移动
-    private bool hasMoved = false;                        // 是否已经移动过
-    private bool hasUsedCherry = false;                   // 是否已经使用过樱桃
+    private bool movingToEnd = true;                       // 当前是否朝终点移动
 
     void Start()
     {
@@ -27,7 +26,8 @@ public class CherryControlledObject : MonoBehaviour
 
         // 记录初始位置
         startPosition = transform.position;
-        targetPosition = startPosition + Vector2.left * moveDistance;
+        endPosition = startPosition + Vector2.left * moveDistance;
+        targetPosition = endPosition;
 
         // 设置初始移动状态
         isMoving = moveOnStart;
@@ -53,7 +53,7 @@ public class CherryControlledObject : MonoBehaviour
     void FixedUpdate()
     {
         // 在FixedUpdate中处理物理移动
-        if (isMoving && !hasMoved)
+        if (isMoving)
         {
             MoveObject();
         }
@@ -84,7 +84,6 @@ public class CherryControlledObject : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 transform.position = targetPosition;
                 isMoving = false;
-                hasMoved = true;
                 Debug.Log("物体移动完成");
             }
         }
@@ -100,31 +99,19 @@ public class CherryControlledObject : MonoBehaviour
     /// <param name="newState">新的陷阱状态</param>
     private void OnTrapsStateChanged(bool newState)
     {
-        Debug.Log($"陷阱状态变化: {newState}, 已使用樱桃: {hasUsedCherry}, 已移动: {hasMoved}");
-        
-        // 标记已经使用过樱桃
-        hasUsedCherry = true;
-        
-        // 如果还没有移动过，开始移动
-        if (!hasMoved)
+        // 每次触发都切换目标
+        if (!isMoving)
         {
-            StartMoving();
-        }
-    }
-
-    /// <summary>
-    /// 开始移动
-    /// </summary>
-    public void StartMoving()
-    {
-        if (!hasMoved)
-        {
+            if (movingToEnd)
+            {
+                targetPosition = endPosition;
+            }
+            else
+            {
+                targetPosition = startPosition;
+            }
             isMoving = true;
-            Debug.Log("物体开始向左移动");
-        }
-        else
-        {
-            Debug.Log("物体已经移动过了，无法再次移动");
+            movingToEnd = !movingToEnd; // 切换方向
         }
     }
 
@@ -138,8 +125,6 @@ public class CherryControlledObject : MonoBehaviour
             rb.velocity = Vector2.zero;
 
         isMoving = false;
-        hasMoved = false;
-        hasUsedCherry = false;
         Debug.Log("物体位置已重置");
     }
 
@@ -152,7 +137,8 @@ public class CherryControlledObject : MonoBehaviour
     {
         moveSpeed = speed;
         moveDistance = distance;
-        targetPosition = startPosition + Vector2.left * moveDistance;
+        endPosition = startPosition + Vector2.left * moveDistance;
+        targetPosition = endPosition;
         Debug.Log($"移动参数已更新 - 速度: {speed}, 距离: {distance}");
     }
 
@@ -165,13 +151,13 @@ public class CherryControlledObject : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(startPosition, 0.5f);
 
-            // 绘制目标位置
+            // 绘制终点位置
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(targetPosition, 0.5f);
+            Gizmos.DrawWireSphere(endPosition, 0.5f);
 
             // 绘制移动路径
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(startPosition, targetPosition);
+            Gizmos.DrawLine(startPosition, endPosition);
         }
     }
 }

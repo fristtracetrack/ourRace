@@ -13,18 +13,18 @@ public class cherry : MonoBehaviour
             GameObject cherry = collision.gameObject;
 
 
-            // ÉèÖÃÓ£ÌÒµÄ¸¸ÎïÌåÎªÍæ¼Ò£¬Ê¹Æä¸úËæÍæ¼ÒÒÆ¶¯
+            // è®¾ç½®æ¨±æ¡ƒçš„çˆ¶ç‰©ä½“ä¸ºç©å®¶ï¼Œä½¿å…¶è·Ÿéšç©å®¶ç§»åŠ¨
             cherry.transform.SetParent(transform);
 
-            // Ìí¼ÓÓ£ÌÒ¸úËæ½Å±¾×é¼ş£¬´¦Àí¶¯Ì¬Î»ÖÃ
+            // æ·»åŠ æ¨±æ¡ƒè·Ÿéšè„šæœ¬ç»„ä»¶ï¼Œå¤„ç†åŠ¨æ€ä½ç½®
             CherryFollower follower = cherry.AddComponent<CherryFollower>();
             follower.player = this.transform;
-            follower.offset = new Vector2(0.2f, -0.1f); // µ÷ÕûÕâ¸öÖµÀ´ÉèÖÃÓ£ÌÒµÄÏà¶ÔÎ»ÖÃ
+            follower.offset = new Vector2(0.2f, -0.1f); // è°ƒæ•´è¿™ä¸ªå€¼æ¥è®¾ç½®æ¨±æ¡ƒçš„ç›¸å¯¹ä½ç½®
 
-            // ËõĞ¡Ó£ÌÒµÄ´óĞ¡£¬ÕâÀïÉèÖÃÎªÔ­À´µÄÒ»°ë£¬¿É°´Ğèµ÷Õû
+            // ç¼©å°æ¨±æ¡ƒçš„å¤§å°ï¼Œè¿™é‡Œè®¾ç½®ä¸ºåŸæ¥çš„ä¸€åŠï¼Œå¯æŒ‰éœ€è°ƒæ•´
             cherry.transform.localScale = new Vector2(0.8f, 0.8f);
 
-            // ½ûÓÃÓ£ÌÒµÄÅö×²Ìå£¬±ÜÃâÖØ¸´´¥·¢ÒÔ¼°¶ÔÍæ¼ÒÒÆ¶¯Ôì³É¸ÉÈÅ
+            // ç¦ç”¨æ¨±æ¡ƒçš„ç¢°æ’ä½“ï¼Œé¿å…é‡å¤è§¦å‘ä»¥åŠå¯¹ç©å®¶ç§»åŠ¨é€ æˆå¹²æ‰°
             Collider2D cherryCollider = cherry.GetComponent<Collider2D>();
             if (cherryCollider != null)
             {

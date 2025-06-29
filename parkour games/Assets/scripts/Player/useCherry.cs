@@ -16,7 +16,7 @@ public class useCherry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ¼ì²âW¼ü°´ÏÂ
+        // ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.W) && HasCherryChild())
         {
             UseCherry();
@@ -26,32 +26,29 @@ public class useCherry : MonoBehaviour
     
     private void UseCherry()
     {
-        if (isAlive.TrapsAreAlive)
-        {
-            isAlive.TrapsAreAlive = false;
-        }
-        else
-        {
-            isAlive.TrapsAreAlive = true;
-        }
-        // Ïú»ÙËùÓĞÓ£ÌÒ×ÓÎïÌå£¨¿ÉÑ¡£ºÈç¹ûÏëÊ¹ÓÃºóÒÆ³ıÓ£ÌÒ£©
+        // åˆ‡æ¢é™·é˜±çŠ¶æ€ - è¿™ä¼šè‡ªåŠ¨è§¦å‘OnTrapsStateChangedäº‹ä»¶
+        isAlive.TrapsAreAlive = !isAlive.TrapsAreAlive;
+        
+        // é”€æ¯æ¨±æ¡ƒå­ç‰©ä½“ï¼ˆä½¿ç”¨æ¨±æ¡ƒåç§»é™¤æ¨±æ¡ƒï¼‰
         DestroyCherryChildren();
 
-        // 3. ²¥·ÅÊ¹ÓÃ¶¯»­»òÌØĞ§£¨¿ÉÑ¡£©
+        // 3. å¯ä»¥æ·»åŠ ä½¿ç”¨æ¨±æ¡ƒçš„åŠ¨ç”»æ•ˆæœï¼ˆå¯é€‰ï¼‰
         // GetComponent<Animator>().SetTrigger("UseCherry");
+        
+        Debug.Log($"ä½¿ç”¨æ¨±æ¡ƒ - é™·é˜±çŠ¶æ€: {(isAlive.TrapsAreAlive ? "æ¿€æ´»" : "åœç”¨")}");
     }
 
-    // ¼ì²éÊÇ·ñÓĞÃûÎª"cherry"µÄ×ÓÎïÌå
+    // Ç·Îª"cherry"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool HasCherryChild()
     {
         foreach (Transform child in transform)
         {
             if (child.CompareTag("cherry"))
             {
-                return true; // ÕÒµ½Ó£ÌÒ×ÓÎïÌå
+                return true; // ï¿½Òµï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             }
         }
-        return false; // Î´ÕÒµ½
+        return false; // Î´ï¿½Òµï¿½
     }
 
     private void DestroyCherryChildren()
