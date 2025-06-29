@@ -21,8 +21,11 @@ public class FlagController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        // 取消订阅以避免内存泄漏
-        stateManager.OnTrapsStateChanged -= UpdateFlagState;
+        // 关键修复：检查 stateManager 是否为 null
+        if (stateManager != null)
+        {
+            stateManager.OnTrapsStateChanged -= UpdateFlagState;
+        }
     }
 
     // 根据全局状态更新旗子状态
