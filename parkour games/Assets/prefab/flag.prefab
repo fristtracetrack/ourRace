@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3163417846210481392}
   - component: {fileID: 6994266594434318589}
   - component: {fileID: 1145398179077484243}
+  - component: {fileID: 1974325484133729812}
   m_Layer: 0
   m_Name: flag
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1529076852502319696}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: -3.46, z: 0}
+  m_LocalPosition: {x: 18.75, y: -3.41, z: 0}
   m_LocalScale: {x: 0.5669, y: 0.5669, z: 0.5669}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -194,3 +195,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flag_anim: {fileID: 0}
+--- !u!114 &1974325484133729812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529076852502319696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc39d41ecda3d47459e8e37cb0c38102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagAnimator: {fileID: 6994266594434318589}
+  flagCollider: {fileID: 3163417846210481392}
+  victorySound: {fileID: 8300000, guid: 4dcfc7bb7813f20469d2fd05a8baaf7c, type: 3}
+  finishAnimationName: finshi
+  nextSceneIndex: -1
+  sceneTransitionDelay: 0.2
+  instantTransition: 0
+  contactCooldown: 0.2

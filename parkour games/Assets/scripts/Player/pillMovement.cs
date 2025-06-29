@@ -11,6 +11,9 @@ public class pillMovement : MonoBehaviour
 
     [SerializeField] private LayerMask groundLayer;//地面所在图层
 
+    [SerializeField] private AudioClip jumpSound; // 跳跃音效
+    [SerializeField] private AudioSource audioSource; // 音频源
+
     private Rigidbody2D rd;
     private BoxCollider2D coll;
     private SpriteRenderer sr; //画布反转
@@ -110,6 +113,8 @@ public class pillMovement : MonoBehaviour
     {
         rd.velocity = new Vector2(rd.velocity.x, jumpForce);
         jumpCount++;
+        // 播放音效（注意类名已改为 SoundPlay）
+        SoundPlay.Instance.PlaySound(jumpSound);
     }
 }
 

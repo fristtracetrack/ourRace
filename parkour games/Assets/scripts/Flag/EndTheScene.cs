@@ -9,6 +9,8 @@ public class EndTheScene : MonoBehaviour
     public Animator flagAnimator; // 旗子的Animator组件
     public Collider2D flagCollider; // 旗子的碰撞器组件
 
+    [SerializeField] private AudioClip victorySound; // 胜利音效
+
     [Header("动画设置")]
     public string finishAnimationName = "finshi"; // finish动画的名称
 
@@ -93,6 +95,9 @@ public class EndTheScene : MonoBehaviour
         if (CanTriggerSceneTransition())
         {
             Debug.Log("玩家接触旗子，立即触发场景切换");
+            // 播放胜利音效
+            if (victorySound != null)
+                SoundPlay.Instance.PlaySound(victorySound);
             StartSceneTransition();
         }
         else
