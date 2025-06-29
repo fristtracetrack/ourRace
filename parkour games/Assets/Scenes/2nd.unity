@@ -854,7 +854,6 @@ MonoBehaviour:
   moveSpeed: 2
   moveDistance: 10
   moveOnStart: 0
-  moveOnFirstUse: 1
   rb: {fileID: 373069955}
 --- !u!4 &410354197 stripped
 Transform:
@@ -3920,8 +3919,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1529076852502319696, guid: b83d6c38db750f349ac3229a097281ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1994365930}
   m_SourcePrefab: {fileID: 100100000, guid: b83d6c38db750f349ac3229a097281ac, type: 3}
+--- !u!1 &1994365928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1529076852502319696, guid: b83d6c38db750f349ac3229a097281ac, type: 3}
+  m_PrefabInstance: {fileID: 1994365927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1994365929 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3163417846210481392, guid: b83d6c38db750f349ac3229a097281ac, type: 3}
+  m_PrefabInstance: {fileID: 1994365927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1994365930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994365928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc39d41ecda3d47459e8e37cb0c38102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagAnimator: {fileID: 622972012}
+  flagCollider: {fileID: 1994365929}
+  finishAnimationName: finshi
+  nextSceneIndex: -1
+  sceneTransitionDelay: 0.2
+  instantTransition: 0
+  contactCooldown: 0.2
 --- !u!1001 &2000221691
 PrefabInstance:
   m_ObjectHideFlags: 0
